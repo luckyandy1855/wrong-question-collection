@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>六年级下册数学｜名校名卷卷1</title>
+<style>
+:root {
+  --bg: #edf1f6;
+  --paper: #ffffff;
+  --ink: #1e2228;
+  --muted: #6b7280;
+  --accent: #2c6aa8;
+  --accent-mid: #3d8ed4;
+  --accent-soft: #e5f0fb;
+  --accent-softer: #f0f7fd;
+  --border: #ccd9ea;
+  --line: #dde7f2;
+  --soft: #f5f9fd;
+  --cover-from: #2c6aa8;
+  --cover-to: #3fa8d8;
+  --cover-shadow: rgba(28, 80, 140, .26);
+  --card-shadow: 0 2px 12px rgba(20, 40, 70, .07), 0 1px 3px rgba(20, 40, 70, .05);
+  --card-shadow-hover: 0 8px 28px rgba(20, 40, 70, .11), 0 2px 6px rgba(20, 40, 70, .07);
+  --tag-border: #bad2e8;
+  --check-border: #a8c0d8;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+  line-height: 1.75;
+}
+
+/* ─ 页面容器 ─ */
+.page {
+  max-width: 1020px;
+  margin: 36px auto;
+  padding: 0 0 56px;
+  background: transparent;
+}
+
+/* ─ 封面 ─ */
+.cover {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 36px 42px 30px;
+  background: linear-gradient(135deg, var(--cover-from) 0%, var(--cover-to) 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px var(--cover-shadow);
+}
+.cover h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0,0,0,.18);
+}
+
+/* ─ 卡片 ─ */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 30px 34px 36px;
+  margin: 20px 0;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow .2s ease, transform .2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-mid) 100%);
+  border-radius: 14px 14px 0 0;
+}
+.card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-1px);
+}
+
+/* ─ 题目头部 ─ */
+.q-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.q-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 16px;
+  min-width: 0;
+}
+.q-title {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-mid) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -.5px;
+}
+
+/* ─ 知识点 / 难度小号标签 ─ */
+.q-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-soft);
+  border: 1px solid var(--tag-border);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.tag + .tag { margin-left: 4px; }
+.tag + .tag::before { display: none; }
+.tag-label { color: var(--accent); font-weight: 700; }
+.tag-value { color: #2a3f3d; font-weight: 600; }
+
+/* ─ 打卡框 ─ */
+.checks { display: flex; gap: 10px; align-items: center; white-space: nowrap; flex-shrink: 0; }
+.box {
+  width: 26px; height: 26px;
+  border: 2px solid var(--check-border);
+  border-radius: 6px;
+  background: #fff;
+  transition: border-color .15s;
+}
+.box:hover { border-color: var(--accent); }
+
+/* ─ 小节标题 ─ */
+.section-title {
+  margin: 22px 0 11px;
+  padding: 6px 14px;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-softer);
+  border-radius: 0 8px 8px 0;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+/* ─ 题干 ─ */
+.question {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 22px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--ink);
+}
+.question b { font-weight: 600; color: var(--accent); }
+
+/* ─ 参考图 ─ */
+.figure {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 18px;
+  text-align: center;
+  overflow: auto;
+  display: inline-block;
+  max-width: 100%;
+  min-width: 360px;
+}
+.figure-error-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+.figure-pane,
+.error-pane { min-width: 0; }
+.figure-error-layout .section-title { margin-top: 22px; }
+.figure-error-layout .figure {
+  width: 100%;
+  min-width: 0;
+  height: calc(100% - 56px);
+}
+.figure-error-layout .error-points {
+  grid-template-columns: 1fr;
+  height: calc(100% - 56px);
+}
+
+/* ─ 易错点（双栏固定色调，不随主题变化） ─ */
+.error-points {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.error-box {
+  min-height: 120px;
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+.error-box:first-child { background: #fff8f0; border: 1px solid #f0dbc4; }
+.error-box:first-child h4 { color: #b85c00; }
+.error-box:last-child  { background: #f0f8f0; border: 1px solid #c0ddc0; }
+.error-box:last-child  h4 { color: #2a7a3a; }
+.error-box h4 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.error-box:first-child h4::before { content: "⚠️"; font-size: 14px; }
+.error-box:last-child  h4::before { content: "✅"; font-size: 14px; }
+.error-box p { margin: 0; color: #363330; }
+
+@media (max-width: 720px) {
+  .page { margin: 0; padding: 0 0 32px; }
+  .cover { border-radius: 0; padding: 28px 20px 22px; }
+  .cover h1 { font-size: 22px; }
+  .card { border-radius: 10px; padding: 22px 18px 26px; margin: 16px 12px; }
+  .card::before { border-radius: 10px 10px 0 0; }
+  .q-title { font-size: 22px; }
+  .section-title { font-size: 16px; }
+  .question { font-size: 16px; }
+  .error-points { grid-template-columns: 1fr; }
+  .figure-error-layout { grid-template-columns: 1fr; gap: 0; }
+}
+
+svg { max-width: 100%; height: auto; }
+.figure svg { max-height: 300px; width: auto; }
+
+@media print {
+  body { background: #fff; }
+  .page { margin: 0; max-width: none; padding: 0; }
+  .cover { background: var(--cover-from); border-radius: 0; box-shadow: none; padding: 6mm 10mm 5mm; margin-bottom: 6px; }
+  .cover h1 { font-size: 15pt; letter-spacing: 0; }
+  .card { box-shadow: none; margin: 7px 0; border-color: #ccc; padding: 10px 12px 12px; border-radius: 0; }
+  .card::before { display: none; }
+  .card { break-inside: avoid; }
+  .q-head { margin-bottom: 8px; padding-bottom: 7px; gap: 10px; }
+  .q-title { font-size: 16pt; }
+  .q-meta { font-size: 9.5pt; line-height: 1.25; gap: 4px 6px; }
+  .tag { padding: 2px 7px; font-size: 9.5pt; border-radius: 14px; }
+  .checks { gap: 5px; }
+  .box { width: 17px; height: 17px; border-radius: 4px; border-width: 1.5px; }
+  .section-title { margin: 10px 0 6px; padding: 4px 9px; font-size: 10.5pt; border-left-width: 3px; }
+  .question { padding: 8px 10px; font-size: 10.5pt; line-height: 1.45; border-radius: 7px; }
+  .figure-error-layout { gap: 8px; }
+  .figure-error-layout .section-title { margin-top: 8px; }
+  .figure-error-layout .figure,
+  .figure-error-layout .error-points { height: calc(100% - 30px); }
+  .figure { padding: 8px; border-radius: 7px; }
+  .figure svg { max-height: 42mm; width: auto; }
+  .error-points { margin-top: 6px; gap: 6px; }
+  .error-box { min-height: 0; padding: 7px 9px; font-size: 9.5pt; line-height: 1.45; border-radius: 6px; }
+  .error-box h4 { margin-bottom: 3px; font-size: 9pt; }
+  .error-box p { margin: 0; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="cover">
+    <h1>六年级下册数学｜名校名卷卷1</h1>
+  </div>
+
+  <section class="card">
+    <div class="q-head">
+      <div class="q-main">
+        <div class="q-title">第 6 题</div>
+        <div class="q-meta">
+          <span class="tag"><span class="tag-label">知识点</span><span class="tag-value">面积分数与比的转化</span></span>
+          <span class="tag"><span class="tag-label">难度</span><span class="tag-value">6分</span></span>
+        </div>
+      </div>
+      <div class="checks" aria-label="三次复习打卡框"><div class="box"></div><div class="box"></div><div class="box"></div></div>
+    </div>
+
+    <div class="section-title">题干</div>
+    <div class="question">
+      如图，已知阴影部分面积是圆面积的 <b>5/18</b>，是扇形面积的 <b>4/9</b>，则扇形面积与圆面积的比是（ ）。<br>
+      A. 4/5　　B. 5/4　　C. 5/8　　D. 1/2
+    </div>
+
+    <div class="figure-error-layout">
+      <div class="figure-pane">
+        <div class="section-title">参考图</div>
+        <div class="figure">
+          <svg width="760" height="300" viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" aria-label="第6题参考图">
+            <defs>
+              <style>
+                .o{stroke:#2c6aa8;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+                .shade{fill:#d6e7f4;stroke:#2c6aa8;stroke-width:2.5}
+                .dot{fill:#2c6aa8}
+                .txt{font-family:Arial,'Microsoft YaHei',sans-serif;font-size:26px;fill:#4a5568}
+              </style>
+              <clipPath id="circleClip">
+                <circle cx="0" cy="0" r="88"/>
+              </clipPath>
+            </defs>
+
+            <g transform="translate(405,150)">
+              <circle class="o" cx="0" cy="0" r="88"/>
+              <path class="shade" d="M -120 28 L -12 28 L -36 -82 Q -88 -44 -120 28 Z" clip-path="url(#circleClip)"/>
+              <path class="o" d="M -120 28 L -12 28"/>
+              <path class="o" d="M -12 28 L -36 -82"/>
+              <path class="o" d="M -120 28 Q -88 -44 -36 -82"/>
+              <circle class="dot" cx="18" cy="-10" r="4.5"/>
+            </g>
+            <text class="txt" x="465" y="265">第 6 题图</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="error-pane">
+        <div class="section-title">易错点</div>
+        <div class="error-points">
+          <div class="error-box">
+            <h4>基于学生板书总结</h4>
+            <p>板书里先分别算出了“5的平方”和“8的平方”，说明容易把两个分数各自单算后再凭感觉选项，忽略了它们都对应同一块阴影面积。</p>
+          </div>
+          <div class="error-box">
+            <h4>AI总结</h4>
+            <p>同一块阴影同时对应两个“几分之几”时，要把阴影当桥梁列等量关系，再反推出两个整体之间的比。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="q-head">
+      <div class="q-main">
+        <div class="q-title">第 16 题</div>
+        <div class="q-meta">
+          <span class="tag"><span class="tag-label">知识点</span><span class="tag-value">等体积混合与比的合成</span></span>
+          <span class="tag"><span class="tag-label">难度</span><span class="tag-value">7分</span></span>
+        </div>
+      </div>
+      <div class="checks" aria-label="三次复习打卡框"><div class="box"></div><div class="box"></div><div class="box"></div></div>
+    </div>
+
+    <div class="section-title">题干</div>
+    <div class="question">
+      两个相同的瓶子都装满了酒精溶液，一个瓶中酒精与水的体积比是 <b>3:1</b>，另一个瓶中酒精与水的体积比是 <b>4:1</b>。如果把这两个瓶中的酒精溶液混合，混合溶液中酒精和水的体积比是 ______。
+    </div>
+
+    <div class="section-title">易错点</div>
+    <div class="error-points">
+      <div class="error-box">
+        <h4>基于学生板书总结</h4>
+        <p>板书直接写出了结果，说明这题容易在心算中把两个比直接相加，或者忘了“两个瓶子相同”意味着应先把两瓶总量统一到同一份数后再合并。</p>
+      </div>
+      <div class="error-box">
+        <h4>AI总结</h4>
+        <p>混合题先统一每份溶液的总量，再分别求酒精和水各有多少份，最后再合成新比。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="q-head">
+      <div class="q-main">
+        <div class="q-title">第 18 题</div>
+        <div class="q-meta">
+          <span class="tag"><span class="tag-label">知识点</span><span class="tag-value">比多比少与连比转化</span></span>
+          <span class="tag"><span class="tag-label">难度</span><span class="tag-value">8分</span></span>
+        </div>
+      </div>
+      <div class="checks" aria-label="三次复习打卡框"><div class="box"></div><div class="box"></div><div class="box"></div></div>
+    </div>
+
+    <div class="section-title">题干</div>
+    <div class="question">
+      已知 <b>a</b> 比 <b>b</b> 少 <b>1/5</b>，<b>a</b> 比 <b>c</b> 多 <b>2/5</b>，用最简整数比表示出 <b>a:b:c</b> = ______。
+    </div>
+
+    <div class="section-title">易错点</div>
+    <div class="error-points">
+      <div class="error-box">
+        <h4>基于学生板书总结</h4>
+        <p>学生把 <b>b</b> 圈出来、把 <b>c</b> 画线后写成了一个三项整数比，说明容易把“少 1/5”“多 2/5”都错误地当成以 <b>a</b> 为单位，导致每一步参照量混淆。</p>
+      </div>
+      <div class="error-box">
+        <h4>AI总结</h4>
+        <p>看到“比谁多几分之几、比谁少几分之几”，先找清楚分率对应的参照量，再把三个量统一到同一个标准上。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="q-head">
+      <div class="q-main">
+        <div class="q-title">第 25 题</div>
+        <div class="q-meta">
+          <span class="tag"><span class="tag-label">知识点</span><span class="tag-value">相向而行与到达时间差</span></span>
+          <span class="tag"><span class="tag-label">难度</span><span class="tag-value">8分</span></span>
+        </div>
+      </div>
+      <div class="checks" aria-label="三次复习打卡框"><div class="box"></div><div class="box"></div><div class="box"></div></div>
+    </div>
+
+    <div class="section-title">题干</div>
+    <div class="question">
+      大小两辆客车分别从 <b>A、B</b> 两地同时相向开出，大小客车速度比是 <b>4:5</b>，两车开出 <b>4小时</b> 相遇，相遇后继续前进，问：大客车到达 <b>B</b> 地比小客车到达 <b>A</b> 地晚几小时？
+    </div>
+
+    <div class="section-title">易错点</div>
+    <div class="error-points">
+      <div class="error-box">
+        <h4>基于学生板书总结</h4>
+        <p>板书先算出了总路程和相遇后的剩余路程，思路是对的，但这类题最容易把“谁走剩下的哪一段”对应错，或者把两段剩余路程误认为还按原速度比分配。</p>
+      </div>
+      <div class="error-box">
+        <h4>AI总结</h4>
+        <p>相遇后比较谁先到终点，要分别看两车各自还剩多少路程，再用“剩余路程 ÷ 自己速度”比较剩余时间。</p>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

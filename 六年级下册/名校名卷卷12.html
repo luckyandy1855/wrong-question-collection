@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>六年级下册数学｜名校名卷卷12</title>
+<style>
+/* ══ 色调 03：松林绿 ══ */
+:root {
+  --bg: #edf2eb;
+  --paper: #ffffff;
+  --ink: #1e2420;
+  --muted: #6b786a;
+  --accent: #3d7045;
+  --accent-mid: #54965e;
+  --accent-soft: #e5f2e6;
+  --accent-softer: #f0f8f0;
+  --border: #cadac7;
+  --line: #dce8d9;
+  --soft: #f4f9f3;
+  --cover-from: #3d7045;
+  --cover-to: #60b070;
+  --cover-shadow: rgba(35,80,40,.26);
+  --card-shadow: 0 2px 12px rgba(30,50,28,.07), 0 1px 3px rgba(30,50,28,.05);
+  --card-shadow-hover: 0 8px 28px rgba(30,50,28,.11), 0 2px 6px rgba(30,50,28,.07);
+  --tag-border: #badbb8;
+  --check-border: #a8c8a4;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+  line-height: 1.75;
+}
+
+/* ─ 页面容器 ─ */
+.page {
+  max-width: 1020px;
+  margin: 36px auto;
+  padding: 0 0 56px;
+  background: transparent;
+}
+
+/* ─ 封面 ─ */
+.cover {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 36px 42px 30px;
+  background: linear-gradient(135deg, var(--cover-from) 0%, var(--cover-to) 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px var(--cover-shadow);
+}
+.cover h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0,0,0,.18);
+}
+
+/* ─ 卡片 ─ */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 30px 34px 36px;
+  margin: 20px 0;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow .2s ease, transform .2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-mid) 100%);
+  border-radius: 14px 14px 0 0;
+}
+.card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-1px);
+}
+
+/* ─ 题目头部 ─ */
+.q-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.q-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 16px;
+  min-width: 0;
+}
+.q-title {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-mid) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -.5px;
+}
+
+/* ─ 知识点 / 难度小号标签 ─ */
+.q-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-soft);
+  border: 1px solid var(--tag-border);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.tag + .tag { margin-left: 4px; }
+.tag + .tag::before { display: none; }
+.tag-label { color: var(--accent); font-weight: 700; }
+.tag-value { color: #2a3f3d; font-weight: 600; }
+
+/* ─ 打卡框 ─ */
+.checks { display: flex; gap: 10px; align-items: center; white-space: nowrap; flex-shrink: 0; }
+.box {
+  width: 26px; height: 26px;
+  border: 2px solid var(--check-border);
+  border-radius: 6px;
+  background: #fff;
+  transition: border-color .15s;
+}
+.box:hover { border-color: var(--accent); }
+
+/* ─ 小节标题 ─ */
+.section-title {
+  margin: 22px 0 11px;
+  padding: 6px 14px;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-softer);
+  border-radius: 0 8px 8px 0;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+/* ─ 题干 ─ */
+.question {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 22px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--ink);
+}
+.question b { font-weight: 600; color: var(--accent); }
+.question ol {
+  margin: 8px 0 0 1.2em;
+  padding: 0;
+}
+.question li { margin: 4px 0; }
+
+/* ─ 参考图 ─ */
+.figure {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 18px;
+  text-align: center;
+  overflow: auto;
+  display: inline-block;
+  max-width: 100%;
+  min-width: 360px;
+}
+.figure.multi-figure {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+.figure-set {
+  display: grid;
+  gap: 20px;
+  align-items: end;
+  justify-items: center;
+}
+.figure-set.three { grid-template-columns: repeat(3, minmax(180px, 1fr)); }
+.figure-set.two { grid-template-columns: repeat(2, minmax(240px, 1fr)); }
+.figure-item {
+  width: 100%;
+  text-align: center;
+}
+.figure-item svg {
+  width: 100%;
+  max-width: 260px;
+}
+.figure-item.wide svg { max-width: 340px; }
+.figure-error-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+.figure-pane,
+.error-pane {
+  min-width: 0;
+}
+.figure-error-layout .section-title { margin-top: 22px; }
+.figure-error-layout .figure {
+  width: 100%;
+  min-width: 0;
+  height: calc(100% - 56px);
+}
+.figure-error-layout .error-points {
+  grid-template-columns: 1fr;
+  height: calc(100% - 56px);
+}
+
+/* ─ 易错点（双栏固定色调，不随主题变化） ─ */
+.error-points {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.error-box {
+  min-height: 120px;
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+.error-box:first-child { background: #fff8f0; border: 1px solid #f0dbc4; }
+.error-box:first-child h4 { color: #b85c00; }
+.error-box:last-child  { background: #f0f8f0; border: 1px solid #c0ddc0; }
+.error-box:last-child  h4 { color: #2a7a3a; }
+.error-box h4 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.error-box:first-child h4::before { content: "⚠️"; font-size: 14px; }
+.error-box:last-child  h4::before { content: "✅"; font-size: 14px; }
+.error-box p { margin: 0; color: #363330; }
+
+.data-table {
+  width: 100%;
+  margin: 14px 0 8px;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.data-table th,
+.data-table td {
+  border: 1px solid var(--tag-border);
+  padding: 8px 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+.data-table th {
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-weight: 700;
+}
+.figure-note {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: left;
+}
+
+/* ─ 响应式 ─ */
+@media (max-width: 720px) {
+  .page { margin: 0; padding: 0 0 32px; }
+  .cover { border-radius: 0; padding: 28px 20px 22px; }
+  .cover h1 { font-size: 22px; }
+  .card { border-radius: 10px; padding: 22px 18px 26px; margin: 16px 12px; }
+  .card::before { border-radius: 10px 10px 0 0; }
+  .q-title { font-size: 22px; }
+  .section-title { font-size: 16px; }
+  .question { font-size: 16px; }
+  .figure-error-layout { grid-template-columns: 1fr; gap: 0; }
+  .figure-set.three,
+  .figure-set.two { grid-template-columns: 1fr; }
+  .error-points { grid-template-columns: 1fr; }
+}
+
+svg { max-width: 100%; height: auto; }
+.figure svg { max-height: 300px; width: auto; }
+.multi-figure .figure-item svg {
+  width: 100%;
+  height: auto;
+  max-height: none;
+}
+
+/* ─ 打印 ─ */
+@media print {
+  body { background: #fff; }
+  .page { margin: 0; max-width: none; padding: 0; }
+  .cover { background: var(--cover-from); border-radius: 0; box-shadow: none; margin-bottom: 6px; padding: 6mm 10mm 5mm; }
+  .cover h1 { font-size: 15pt; letter-spacing: 0; }
+  .card { box-shadow: none; margin: 7px 0; border-color: #ccc; padding: 10px 12px 12px; border-radius: 0; }
+  .card::before { display: none; }
+  .card { break-inside: avoid; }
+  .q-head { gap: 10px; margin-bottom: 8px; padding-bottom: 6px; }
+  .q-main { gap: 4px 8px; }
+  .q-title { font-size: 15pt; letter-spacing: 0; }
+  .q-meta { gap: 3px 5px; font-size: 8.5pt; line-height: 1.2; }
+  .tag { padding: 1px 6px; font-size: 8.5pt; border-radius: 12px; }
+  .checks { gap: 5px; }
+  .box { width: 16px; height: 16px; border-radius: 4px; }
+  .section-title { margin: 8px 0 5px; padding: 2px 8px; font-size: 10.5pt; border-left-width: 3px; }
+  .question { padding: 8px 10px; font-size: 10.5pt; line-height: 1.48; border-radius: 6px; }
+  .figure-error-layout { gap: 8px; }
+  .figure-error-layout .section-title { margin-top: 8px; }
+  .figure-error-layout .figure,
+  .figure-error-layout .error-points { height: calc(100% - 30px); }
+  .figure { padding: 8px; border-radius: 6px; }
+  .figure svg { max-height: 42mm; width: auto; }
+  .error-points { margin-top: 6px; gap: 6px; }
+  .error-box { min-height: 0; padding: 7px 9px; font-size: 9.5pt; line-height: 1.45; border-radius: 6px; }
+  .error-box h4 { margin-bottom: 3px; font-size: 9pt; }
+  .error-box p { margin: 0; }
+  .data-table { font-size: 9pt; }
+  .data-table th,
+  .data-table td { padding: 4px 5px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="cover">
+    <h1>六年级下册数学｜名校名卷卷12</h1>
+  </header>
+
+  <section class="card">
+    <div class="q-head">
+      <div class="q-main">
+        <div class="q-title">第 15 题</div>
+        <div class="q-meta">
+          <span class="tag"><span class="tag-label">知识点</span><span class="tag-value">圆柱侧面展开与表面积</span></span>
+          <span class="tag"><span class="tag-label">难度</span><span class="tag-value">5分</span></span>
+        </div>
+      </div>
+      <div class="checks" aria-label="三次复习打卡框"><div class="box"></div><div class="box"></div><div class="box"></div></div>
+    </div>
+
+    <div class="section-title">题干</div>
+    <div class="question">
+      已知圆柱的侧面展开图是一个<b>正方形</b>，它的底面积为 <b>10 cm²</b>，则它的表面积为 ______ cm²。
+      <b>（结果保留 π）</b>
+    </div>
+
+    <div class="section-title">易错点</div>
+    <div class="error-points">
+      <div class="error-box">
+        <h4>基于学生板书总结</h4>
+        <p>学生把底面积里的 10 直接拿去和侧面积相加，说明“侧面展开图是正方形”这个条件没有真正转成“高 = 底面周长”，只盯住了一个面积条件。</p>
+      </div>
+      <div class="error-box">
+        <h4>AI总结</h4>
+        <p>圆柱侧面展开成正方形时，先抓住“高等于底面周长”，再用“表面积 = 侧面积 + 2 个底面积”。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="q-head">
+      <div class="q-main">
+        <div class="q-title">第 25 题</div>
+        <div class="q-meta">
+          <span class="tag"><span class="tag-label">知识点</span><span class="tag-value">半圆柱表面积与体积</span></span>
+          <span class="tag"><span class="tag-label">难度</span><span class="tag-value">7分</span></span>
+        </div>
+      </div>
+      <div class="checks" aria-label="三次复习打卡框"><div class="box"></div><div class="box"></div><div class="box"></div></div>
+    </div>
+
+    <div class="section-title">题干</div>
+    <div class="question">
+      如图，一个蔬菜大棚两端是 <b>3 米高</b>的半圆形砖墙。已知覆盖塑料薄膜最少需要 <b>376.8 平方米</b>，这个蔬菜大棚的种植面积是多少？整个大棚的空间是多少？
+    </div>
+
+    <div class="figure-error-layout">
+      <div class="figure-pane">
+        <div class="section-title">参考图</div>
+        <div class="figure">
+          <svg viewBox="0 0 420 220" role="img" aria-label="第25题图">
+            <path d="M64 138 A54 54 0 0 1 172 138" fill="none" stroke="#3d7045" stroke-width="3"/>
+            <line x1="64" y1="138" x2="172" y2="138" stroke="#3d7045" stroke-width="3"/>
+            <path d="M172 138 L352 78" fill="none" stroke="#3d7045" stroke-width="3"/>
+            <path d="M64 138 L238 172" fill="none" stroke="#3d7045" stroke-width="3"/>
+            <path d="M238 172 L392 138" fill="none" stroke="#3d7045" stroke-width="3"/>
+            <path d="M352 78 A54 54 0 0 1 392 138" fill="none" stroke="#3d7045" stroke-width="3"/>
+            <path d="M346 96 A46 46 0 0 1 390 134" fill="none" stroke="#3d7045" stroke-width="2.4" stroke-dasharray="7 7"/>
+            <line x1="172" y1="138" x2="392" y2="138" stroke="#3d7045" stroke-width="3"/>
+            <line x1="112" y1="138" x2="112" y2="84" stroke="#3d7045" stroke-width="2.4"/>
+            <line x1="96" y1="84" x2="128" y2="84" stroke="#3d7045" stroke-width="2.4"/>
+            <line x1="96" y1="138" x2="128" y2="138" stroke="#3d7045" stroke-width="2.4"/>
+            <text x="82" y="113" fill="#3d7045" font-size="20">3</text>
+            <text x="180" y="204" fill="#3d7045" font-size="18">第 25 题图</text>
+          </svg>
+        </div>
+      </div>
+      <div class="error-pane">
+        <div class="section-title">易错点</div>
+        <div class="error-points">
+          <div class="error-box">
+            <h4>基于学生板书总结</h4>
+            <p>学生先算出一个半圆面积后，又在求薄膜面积时减法、加法来回切换，说明容易把“薄膜覆盖部分”与“种植地面”混为一谈，尤其漏想前后两个半圆端面。</p>
+          </div>
+          <div class="error-box">
+            <h4>AI总结</h4>
+            <p>半圆柱题先分清“覆盖面积”“种植面积”“空间体积”各对应哪几部分，再代公式，别把地面也算进薄膜里。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="q-head">
+      <div class="q-main">
+        <div class="q-title">第 27 题</div>
+        <div class="q-meta">
+          <span class="tag"><span class="tag-label">知识点</span><span class="tag-value">圆柱组合体积与成本建模</span></span>
+          <span class="tag"><span class="tag-label">难度</span><span class="tag-value">9分</span></span>
+        </div>
+      </div>
+      <div class="checks" aria-label="三次复习打卡框"><div class="box"></div><div class="box"></div><div class="box"></div></div>
+    </div>
+
+    <div class="section-title">题干</div>
+    <div class="question">
+      某糕点店为了“吸引顾客”，制作了蜂窝煤蛋糕。该蛋糕整体呈圆柱形，中间有 <b>12 个</b>底面和高都相同的空心圆柱；图 1 为蛋糕实物图，图 2 为抽象图，图 3 为蛋糕的俯视图。已知该蛋糕底面周长为 <b>20π 厘米</b>，高比底面直径少 <b>40%</b>，内部小圆柱的直径为 <b>2 厘米</b>。
+      <ol>
+        <li>求蛋糕的高；</li>
+        <li>求蛋糕的体积；<b>（此问结果保留 π）</b></li>
+        <li>为满足顾客多种口味的需求，现计划将蛋糕沿着图 3 中互相垂直的两条直径平均分成 <b>4 份</b>，分别做成蓝莓、草莓、椰子和芒果 4 种不同口味的蛋糕。制作时将 4 种不同口味的果酱分别融入小圆柱中，并用奶油涂满整个蛋糕外表面形成一个大圆柱，所涂奶油厚度为 <b>1 cm</b>。各种原料单价如下表所示，制作这样一个蛋糕的成本是多少元？<b>（此问 π 取 3）</b></li>
+      </ol>
+      <table class="data-table" aria-label="第27题原料单价表">
+        <thead>
+          <tr>
+            <th>品名</th>
+            <th>蛋糕胚</th>
+            <th>奶油</th>
+            <th>蓝莓果酱</th>
+            <th>草莓果酱</th>
+            <th>椰子果酱</th>
+            <th>芒果果酱</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>单价/升</td>
+            <td>15</td>
+            <td>20</td>
+            <td>14</td>
+            <td>30</td>
+            <td>22</td>
+            <td>24</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-title">参考图</div>
+    <div class="figure multi-figure">
+      <div class="figure-set three" aria-label="第27题图1图2图3">
+        <div class="figure-item">
+          <svg viewBox="0 0 260 185" role="img" aria-label="第27题图1">
+            <defs>
+              <radialGradient id="coalCake" cx="45%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#606766"/>
+                <stop offset="60%" stop-color="#343a39"/>
+                <stop offset="100%" stop-color="#1f2423"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="132" cy="78" rx="94" ry="42" fill="url(#coalCake)" stroke="#26302d" stroke-width="3"/>
+            <path d="M38 78 C40 126 224 126 226 78 L226 111 C220 157 44 157 38 111 Z" fill="#2d3332" stroke="#26302d" stroke-width="3"/>
+            <g fill="#101414" stroke="#222827" stroke-width="2">
+              <ellipse cx="76" cy="58" rx="16" ry="7"/>
+              <ellipse cx="114" cy="51" rx="16" ry="7"/>
+              <ellipse cx="154" cy="55" rx="16" ry="7"/>
+              <ellipse cx="194" cy="68" rx="15" ry="7"/>
+              <ellipse cx="59" cy="86" rx="15" ry="7"/>
+              <ellipse cx="98" cy="81" rx="16" ry="7"/>
+              <ellipse cx="138" cy="83" rx="16" ry="7"/>
+              <ellipse cx="178" cy="88" rx="16" ry="7"/>
+              <ellipse cx="82" cy="110" rx="15" ry="7"/>
+              <ellipse cx="122" cy="107" rx="16" ry="7"/>
+              <ellipse cx="164" cy="112" rx="16" ry="7"/>
+              <ellipse cx="202" cy="101" rx="14" ry="7"/>
+            </g>
+            <text x="112" y="174" fill="#3d7045" font-size="20">图 1</text>
+          </svg>
+        </div>
+        <div class="figure-item">
+          <svg viewBox="0 0 260 185" role="img" aria-label="第27题图2">
+            <ellipse cx="130" cy="52" rx="92" ry="34" fill="none" stroke="#3d7045" stroke-width="3"/>
+            <path d="M38 52 L38 116 C42 144 218 144 222 116 L222 52" fill="none" stroke="#3d7045" stroke-width="3"/>
+            <g fill="none" stroke="#3d7045" stroke-width="2.4">
+              <ellipse cx="82" cy="36" rx="15" ry="7"/>
+              <ellipse cx="124" cy="28" rx="15" ry="7"/>
+              <ellipse cx="168" cy="36" rx="15" ry="7"/>
+              <ellipse cx="62" cy="60" rx="15" ry="7"/>
+              <ellipse cx="103" cy="55" rx="15" ry="7"/>
+              <ellipse cx="145" cy="57" rx="15" ry="7"/>
+              <ellipse cx="188" cy="58" rx="15" ry="7"/>
+              <ellipse cx="78" cy="85" rx="15" ry="7"/>
+              <ellipse cx="122" cy="82" rx="15" ry="7"/>
+              <ellipse cx="166" cy="85" rx="15" ry="7"/>
+              <ellipse cx="108" cy="112" rx="15" ry="7"/>
+              <ellipse cx="152" cy="111" rx="15" ry="7"/>
+            </g>
+            <text x="112" y="174" fill="#3d7045" font-size="20">图 2</text>
+          </svg>
+        </div>
+        <div class="figure-item">
+          <svg viewBox="0 0 260 220" role="img" aria-label="第27题图3">
+            <circle cx="130" cy="98" r="74" fill="none" stroke="#3d7045" stroke-width="3"/>
+            <line x1="56" y1="98" x2="204" y2="98" stroke="#3d7045" stroke-width="3"/>
+            <line x1="130" y1="24" x2="130" y2="172" stroke="#3d7045" stroke-width="3"/>
+            <g fill="none" stroke="#3d7045" stroke-width="2.4">
+              <circle cx="98" cy="56" r="10"/>
+              <circle cx="130" cy="56" r="10"/>
+              <circle cx="162" cy="56" r="10"/>
+              <circle cx="84" cy="88" r="10"/>
+              <circle cx="116" cy="88" r="10"/>
+              <circle cx="146" cy="88" r="10"/>
+              <circle cx="178" cy="88" r="10"/>
+              <circle cx="84" cy="122" r="10"/>
+              <circle cx="116" cy="122" r="10"/>
+              <circle cx="146" cy="122" r="10"/>
+              <circle cx="178" cy="122" r="10"/>
+              <circle cx="130" cy="152" r="10"/>
+            </g>
+            <text x="44" y="104" fill="#3d7045" font-size="19">A</text>
+            <text x="210" y="104" fill="#3d7045" font-size="19">B</text>
+            <text x="124" y="18" fill="#3d7045" font-size="19">C</text>
+            <text x="124" y="194" fill="#3d7045" font-size="19">D</text>
+            <text x="112" y="216" fill="#3d7045" font-size="20">图 3</text>
+          </svg>
+        </div>
+      </div>
+      <div class="figure-note">第 27 题图</div>
+    </div>
+
+    <div class="section-title">易错点</div>
+    <div class="error-points">
+      <div class="error-box">
+        <h4>基于学生板书总结</h4>
+        <p>学生前两问能算出大圆柱和小圆柱的数据，但第三问把体积单位换算、奶油厚度增加后的外圆柱体积、以及 4 种果酱各占多少小孔体积混在一起，后面成本相加时明显失稳。</p>
+      </div>
+      <div class="error-box">
+        <h4>AI总结</h4>
+        <p>组合体成本题要分层处理：先分清蛋糕胚、奶油、果酱各自对应的体积，再统一单位后乘单价。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="q-head">
+      <div class="q-main">
+        <div class="q-title">第 28 题</div>
+        <div class="q-meta">
+          <span class="tag"><span class="tag-label">知识点</span><span class="tag-value">虹吸过程中的体积守恒</span></span>
+          <span class="tag"><span class="tag-label">难度</span><span class="tag-value">8分</span></span>
+        </div>
+      </div>
+      <div class="checks" aria-label="三次复习打卡框"><div class="box"></div><div class="box"></div><div class="box"></div></div>
+    </div>
+
+    <div class="section-title">题干</div>
+    <div class="question">
+      如图 2，有甲、乙两个圆柱形容器，甲容器底面积是乙容器底面积的 <b>2 倍</b>，高度均为 <b>40 cm</b>，甲容器下方垫有一高度为 <b>h cm</b> 的长方体木块；未发生虹吸现象前，甲容器内水位高度为 <b>30 cm</b>，乙容器内无水。若发生虹吸现象，甲容器中的水不断流入乙容器中。<b>（导管与导管内的液体体积忽略不计）</b>
+      <ol>
+        <li>① 若甲容器内水位下降 <b>10 cm</b>，则此时乙容器内水位上升 ______ cm；<br/>② 当 <b>h = 30</b> 时，试判断虹吸现象过程中乙容器内的水是否会溢出，并说明理由；</li>
+        <li>当虹吸现象结束时，若乙容器内水位深度是甲容器内水位深度的 <b>3 倍</b>，求出此时长方体木块高度 <b>h</b> 的值。</li>
+      </ol>
+    </div>
+
+    <div class="section-title">参考图</div>
+    <div class="figure multi-figure">
+      <div class="figure-set two" aria-label="第28题图1图2">
+        <div class="figure-item wide">
+          <svg viewBox="0 0 340 230" role="img" aria-label="第28题图1">
+            <rect x="42" y="132" width="118" height="52" fill="none" stroke="#3d7045" stroke-width="2.6"/>
+            <ellipse cx="112" cy="60" rx="38" ry="13" fill="none" stroke="#3d7045" stroke-width="2.6"/>
+            <line x1="74" y1="60" x2="74" y2="132" stroke="#3d7045" stroke-width="2.6"/>
+            <line x1="150" y1="60" x2="150" y2="132" stroke="#3d7045" stroke-width="2.6"/>
+            <ellipse cx="112" cy="100" rx="38" ry="13" fill="#d4e8d2" stroke="#3d7045" stroke-width="2"/>
+            <path d="M74 100 L74 132 L150 132 L150 100" fill="#d4e8d2" opacity=".6"/>
+            <path d="M112 62 L112 34 L254 34 L254 120" fill="none" stroke="#3d7045" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M96 62 L96 122" fill="none" stroke="#3d7045" stroke-width="3.8" stroke-linecap="round"/>
+            <ellipse cx="260" cy="88" rx="28" ry="9" fill="none" stroke="#3d7045" stroke-width="2.6"/>
+            <line x1="232" y1="88" x2="232" y2="158" stroke="#3d7045" stroke-width="2.6"/>
+            <line x1="288" y1="88" x2="288" y2="158" stroke="#3d7045" stroke-width="2.6"/>
+            <ellipse cx="260" cy="100" rx="28" ry="9" fill="#d4e8d2" stroke="#3d7045" stroke-width="2"/>
+            <ellipse cx="260" cy="158" rx="28" ry="9" fill="none" stroke="#3d7045" stroke-width="2.6"/>
+            <text x="58" y="124" fill="#3d7045" font-size="18">h</text>
+            <text x="76" y="54" fill="#3d7045" font-size="18">甲</text>
+            <text x="256" y="182" fill="#3d7045" font-size="18">乙</text>
+            <text x="170" y="104" fill="#3d7045" font-size="18">液体</text>
+            <text x="170" y="126" fill="#3d7045" font-size="18">平齐</text>
+            <text x="148" y="214" fill="#3d7045" font-size="18">图 1</text>
+          </svg>
+        </div>
+        <div class="figure-item wide">
+          <svg viewBox="0 0 340 230" role="img" aria-label="第28题图2">
+            <rect x="42" y="132" width="118" height="52" fill="none" stroke="#3d7045" stroke-width="2.6"/>
+            <ellipse cx="112" cy="60" rx="38" ry="13" fill="none" stroke="#3d7045" stroke-width="2.6"/>
+            <line x1="74" y1="60" x2="74" y2="132" stroke="#3d7045" stroke-width="2.6"/>
+            <line x1="150" y1="60" x2="150" y2="132" stroke="#3d7045" stroke-width="2.6"/>
+            <ellipse cx="112" cy="86" rx="38" ry="13" fill="#d4e8d2" stroke="#3d7045" stroke-width="2"/>
+            <path d="M74 86 L74 132 L150 132 L150 86" fill="#d4e8d2" opacity=".6"/>
+            <path d="M112 62 L112 34 L254 34 L254 112" fill="none" stroke="#3d7045" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M96 62 L96 122" fill="none" stroke="#3d7045" stroke-width="3.8" stroke-linecap="round"/>
+            <ellipse cx="260" cy="88" rx="28" ry="9" fill="none" stroke="#3d7045" stroke-width="2.6"/>
+            <line x1="232" y1="88" x2="232" y2="158" stroke="#3d7045" stroke-width="2.6"/>
+            <line x1="288" y1="88" x2="288" y2="158" stroke="#3d7045" stroke-width="2.6"/>
+            <ellipse cx="260" cy="158" rx="28" ry="9" fill="none" stroke="#3d7045" stroke-width="2.6"/>
+            <text x="58" y="124" fill="#3d7045" font-size="18">h</text>
+            <text x="76" y="54" fill="#3d7045" font-size="18">甲</text>
+            <text x="256" y="182" fill="#3d7045" font-size="18">乙</text>
+            <text x="148" y="214" fill="#3d7045" font-size="18">图 2</text>
+          </svg>
+        </div>
+      </div>
+      <div class="figure-note">第 28 题图</div>
+    </div>
+
+    <div class="section-title">易错点</div>
+    <div class="error-points">
+      <div class="error-box">
+        <h4>基于学生板书总结</h4>
+        <p>学生第 1 小问能凭底面积倍数算出液面上升量，但后面容易只盯住容器总高 40 cm，没有把木块高度 h 带来的相对高度差和“结束时液面同高”条件一起考虑。</p>
+      </div>
+      <div class="error-box">
+        <h4>AI总结</h4>
+        <p>虹吸题先用体积守恒处理水位变化，再把“同一水平面液压相等”转成相对高度关系，两个条件要同时用。</p>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
